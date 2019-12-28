@@ -1,23 +1,36 @@
 #!/bin/sh
 
-# enable install of apps downloaded from anywhere
+# Enable install of apps downloaded from anywhere
 spctl --master-disable
 
-# remove eqMac 1.0 driver
-kextunload /System/Library/Extensions/eqMacDriver.kext/
-rm -rf /System/Library/Extensions/eqMacDriver.kext/
+# Get current directory path
+CURRDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-# remove eqMac < 2.1 driver
-kextunload /System/Library/Extensions/eqMac2Driver.kext/
-rm -rf /System/Library/Extensions/eqMac2Driver.kext/
+# Remove all old drivers
+source $CURRDIR/uninstall_driver.sh
 
-touch /System/Library/Extensions
+## # Install driver - location depending on macOS version
+## let VERMINOR=$( sw_vers -productVersion | awk -F '.' '{ print $2 }' )
+##
+## if [ $VERMINOR -lt 15 ]; then
+##   # pre Catalina
+##   DRIVERDIR="/System/Library/Extensions/"
+## else
+##   DRIVERDIR="/Library/Extensions/"
+## fi
 
-# get current directory path
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+# Install driver - in 3rd party location if present else System
+if [ -d "/Library/Extensions/" ]; then
+  DRIVERDIR="/Library/Extensions/"
+else
+  DRIVERDIR="/System/Library/Extensions/"
+fi
 
-# install the new driver
-cp -R $DIR/eqMac2Driver.kext /System/Library/Extensions/
-kextload -tv /System/Library/Extensions/eqMac2Driver.kext
-touch /System/Library/Extensions
+# Install the new driver
+touch $DRIVERDIR
 
+echo "Installing $CURRDIR/eqMac2Driver.kext in $DRIVERDIR"
+cp -R $CURRDIR/eqMac2Driver.kext $DRIVERDIR
+kextload -v 2 ${DRIVERDIR}eqMac2Driver.kext
+
+touch $DRIVERDIR
