@@ -544,7 +544,6 @@
 				306DA1C51BEF965F002CB1C9 /* Resources */,
 				E0101BDD1C995D9C008091E9 /* CopyFiles */,
 				069EEAEDF585E353EE09BB23 /* [CP] Embed Pods Frameworks */,
-				843AE5CDFC657801F95DC474 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -566,8 +565,8 @@
 				TargetAttributes = {
 					306DA1C61BEF965F002CB1C9 = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = JZA6C97KJA;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = FY8AD3W7YM;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -576,6 +575,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -647,7 +647,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-eqMac2/Pods-eqMac2-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-eqMac2/Pods-eqMac2-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/STPrivilegedTask/STPrivilegedTask.framework",
 				"${PODS_ROOT}/Sparkle/Sparkle.framework",
@@ -662,22 +662,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-eqMac2/Pods-eqMac2-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		843AE5CDFC657801F95DC474 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-eqMac2/Pods-eqMac2-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-eqMac2/Pods-eqMac2-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9E1691950E7383BA8C511F30 /* [CP] Check Pods Manifest.lock */ = {
@@ -828,9 +813,11 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = JZA6C97KJA;
+				CURRENT_PROJECT_VERSION = 2.3;
+				DEVELOPMENT_TEAM = FY8AD3W7YM;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -840,10 +827,11 @@
 				INFOPLIST_FILE = "$(SRCROOT)/eqMac2/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MARKETING_VERSION = 2.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bitgapp.eqMac2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "436b674f-56fa-48cd-9846-cd9ef65d7a8e";
-				PROVISIONING_PROFILE_SPECIFIER = "eqMac2 Distribution";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -853,9 +841,11 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = JZA6C97KJA;
+				CURRENT_PROJECT_VERSION = 2.3;
+				DEVELOPMENT_TEAM = FY8AD3W7YM;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -865,6 +855,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/eqMac2/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MARKETING_VERSION = 2.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bitgapp.eqMac2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
