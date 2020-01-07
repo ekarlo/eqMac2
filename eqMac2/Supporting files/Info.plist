@@ -32,6 +32,8 @@
 	<string>Copyright © 2015-2017 Bitgapp. All rights reserved.</string>
 	<key>NSMainNibFile</key>
 	<string>Main</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>This application needs access to your Microphone</string>
 	<key>NSPrincipalClass</key>
 	<string>NSAppEventCatcher</string>
 	<key>SUFeedURL</key>
