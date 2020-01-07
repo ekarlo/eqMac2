@@ -749,7 +749,6 @@ OSStatus EQEngine::OutputProc(void *inRefCon,
 	//copy the data from the buffers	
 	err = This->mBuffer->Fetch(ioData, inNumberFrames, SInt64(TimeStamp->mSampleTime - This->mInToOutSampleOffset));
     
-    checkErr(err);
 	if(err != kCARingBufferError_OK)
 	{
 		MakeBufferSilent (ioData);
@@ -757,7 +756,8 @@ OSStatus EQEngine::OutputProc(void *inRefCon,
 		This->mBuffer->GetTimeBounds(bufferStartTime, bufferEndTime);
 		This->mInToOutSampleOffset = TimeStamp->mSampleTime - bufferStartTime;
 	}
-
+    
+    checkErr(err);
 	return noErr;
 }
 
