@@ -14,6 +14,7 @@
 		30A77E881BFB093A00503E6E /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30A77E871BFB093A00503E6E /* IOKit.framework */; };
 		30A77E8A1BFB094700503E6E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30A77E891BFB094700503E6E /* AudioToolbox.framework */; };
 		30A77E8C1BFB094F00503E6E /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30A77E8B1BFB094F00503E6E /* AudioUnit.framework */; };
+		61C5450123C438890005C214 /* eqMac2-2.3.zip in Resources */ = {isa = PBXBuildFile; fileRef = 61C5450023C438890005C214 /* eqMac2-2.3.zip */; };
 		C7E49B3F727A9657BBC43E9B /* Pods_eqMac2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB898D1CC464E56A965D8E4A /* Pods_eqMac2.framework */; };
 		E01871471FAFC70C0084ECAA /* Logger.m in Sources */ = {isa = PBXBuildFile; fileRef = E01871461FAFC70C0084ECAA /* Logger.m */; };
 		E036A54F1FBE4C1400A4FF07 /* eqMac2Driver.kext in Resources */ = {isa = PBXBuildFile; fileRef = E036A54C1FBE3DE900A4FF07 /* eqMac2Driver.kext */; };
@@ -100,6 +101,7 @@
 		30A77E891BFB094700503E6E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		30A77E8B1BFB094F00503E6E /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
 		614DEEEB6C06E6431C8B7EC2 /* Pods-eqMac2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eqMac2.release.xcconfig"; path = "Pods/Target Support Files/Pods-eqMac2/Pods-eqMac2.release.xcconfig"; sourceTree = "<group>"; };
+		61C5450023C438890005C214 /* eqMac2-2.3.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "eqMac2-2.3.zip"; sourceTree = "<group>"; };
 		A44CF14B89CD3E798D15238B /* Pods-eqMac2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eqMac2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-eqMac2/Pods-eqMac2.debug.xcconfig"; sourceTree = "<group>"; };
 		A7CD694314F86C465E4A5F8B /* libPods-eqMac.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-eqMac.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB898D1CC464E56A965D8E4A /* Pods_eqMac2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eqMac2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -232,6 +234,7 @@
 		306DA1C91BEF965F002CB1C9 /* eqMac2 */ = {
 			isa = PBXGroup;
 			children = (
+				61DDFDCA23C3D2920081E607 /* Dist */,
 				E0B781291EF704660076B3AB /* Source */,
 				E0B7815C1EF704A20076B3AB /* Libs */,
 				E0616A591FADCC7000B5B19E /* Supporting files */,
@@ -256,6 +259,14 @@
 				CB898D1CC464E56A965D8E4A /* Pods_eqMac2.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		61DDFDCA23C3D2920081E607 /* Dist */ = {
+			isa = PBXGroup;
+			children = (
+				61C5450023C438890005C214 /* eqMac2-2.3.zip */,
+			);
+			path = Dist;
 			sourceTree = "<group>";
 		};
 		6D3D49CE95FBA49AB1FBC4BF /* Pods */ = {
@@ -604,6 +615,7 @@
 				E0D7AA0A1FB98E80002952DE /* EQPromotionWindowController.xib in Resources */,
 				E0B781B31EF704BA0076B3AB /* 256x256.png in Resources */,
 				E0B5F09A1F25EEE4005C5F46 /* vol1Light.png in Resources */,
+				61C5450123C438890005C214 /* eqMac2-2.3.zip in Resources */,
 				E080F8DA1FCB07640071A222 /* open_security_settings.scpt in Resources */,
 				E09DCA771FC0BBE200046CDC /* eqMac2Helper.app in Resources */,
 				E0B5F0951F25EEE4005C5F46 /* statusItemDark.png in Resources */,
