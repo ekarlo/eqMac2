@@ -48,6 +48,9 @@
 #ifndef __EQEngine_H__
 #define __EQEngine_H__
 
+//#define CAPT_DEBUG(msg, args...) printf( msg, ##args )
+#define CAPT_DEBUG(msg, args...)
+
 #define checkErr( err) \
 if(err) {\
 	OSStatus error = static_cast<OSStatus>(err);\
@@ -142,6 +145,8 @@ private:
     Float64 mFirstInputTime;
     Float64 mFirstOutputTime;
     Float64 mInToOutSampleOffset;
+    
+    static Float64 kAdjustmentOffsetSamples;
 };
 
 #endif //__EQEngine_H__

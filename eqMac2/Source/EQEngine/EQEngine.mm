@@ -46,9 +46,12 @@
 */ 
 
 #include "EQEngine.h"
+#include <algorithm>
 
 #pragma mark -- EQEngine
 
+
+Float64 EQEngine::kAdjustmentOffsetSamples = 128.0;
 
 
 #pragma mark ---Public Methods---
@@ -704,10 +707,10 @@ OSStatus EQEngine::OutputProc(void *inRefCon,
 									 AudioBufferList * ioData){
     OSStatus err = noErr;
     EQEngine *This = (EQEngine *)inRefCon;
-
 	Float64 rate = 0.0;
 	AudioTimeStamp inTS, outTS;
-	if (This->mFirstInputTime < 0.) {
+
+    if (This->mFirstInputTime < 0.) {
 		// input hasn't run yet -> silence
 		MakeBufferSilent (ioData);
 		return noErr;
@@ -724,7 +727,6 @@ OSStatus EQEngine::OutputProc(void *inRefCon,
 	}
 		
 	err = AudioDeviceGetCurrentTime(This->mOutputDevice.mID, &outTS);
-    
 	checkErr(err);
 	
     rate = inTS.mRateScalar / outTS.mRateScalar;
@@ -748,14 +750,27 @@ OSStatus EQEngine::OutputProc(void *inRefCon,
     
 	//copy the data from the buffers	
 	err = This->mBuffer->Fetch(ioData, inNumberFrames, SInt64(TimeStamp->mSampleTime - This->mInToOutSampleOffset));
-    
-    checkErr(err);
-	if(err != kCARingBufferError_OK)
-	{
-		MakeBufferSilent (ioData);
-		SInt64 bufferStartTime, bufferEndTime;
-		This->mBuffer->GetTimeBounds(bufferStartTime, bufferEndTime);
-		This->mInToOutSampleOffset = TimeStamp->mSampleTime - bufferStartTime;
+    if( err != kCARingBufferError_OK ) {
+        SInt64 bufferStartTime, bufferEndTime;
+        This->mBuffer->GetTimeBounds( bufferStartTime, bufferEndTime );
+        CAPT_DEBUG( "Oops. Adjusting IOOffset from %f, ", This->mInToOutSampleOffset );
+        if ( err < kCARingBufferError_OK ) {
+            CAPT_DEBUG( "ahead " );
+            if ( err == kCARingBufferError_WayBehind ) {
+                MakeBufferSilent( ioData );
+            }
+            This->mInToOutSampleOffset += std::max( ( TimeStamp->mSampleTime - This->mInToOutSampleOffset ) - bufferStartTime, kAdjustmentOffsetSamples );
+        }
+        else if ( err > kCARingBufferError_OK ) {
+            CAPT_DEBUG( "behind " );
+            if ( err == kCARingBufferError_WayAhead ) {
+                MakeBufferSilent( ioData );
+            }
+            // Adjust by the amount that we read past in the buffer
+            This->mInToOutSampleOffset += std::max( ( ( TimeStamp->mSampleTime - This->mInToOutSampleOffset ) + inNumberFrames ) - bufferEndTime, kAdjustmentOffsetSamples );
+        }
+        CAPT_DEBUG( "to %f.\n", This->mInToOutSampleOffset );
+        MakeBufferSilent ( ioData );
 	}
     
 	return noErr;
