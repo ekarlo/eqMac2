@@ -2,6 +2,21 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:CODE_OF_CONDUCT.md">
+   </FileRef>
+   <FileRef
+      location = "group:CONTRIBUTING.md">
+   </FileRef>
+   <FileRef
+      location = "group:LICENSE">
+   </FileRef>
+   <FileRef
+      location = "group:README.md">
+   </FileRef>
+   <FileRef
+      location = "group:STORY.md">
+   </FileRef>
+   <FileRef
       location = "group:eqMac2.xcodeproj">
    </FileRef>
    <FileRef

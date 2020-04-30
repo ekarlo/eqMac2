@@ -1,3 +1,23 @@
+## Clone of eqMac2 with fixes for static/sync loss and Catalina install issues
+This is a clone of project eqMac2 (a macOS System-wide Audio Equalizer) now deprecated and replaced with a new modern implementaaion called eqMac at:
+https://github.com/bitgapp/eqMac
+
+eqMac2 was formerly at:
+https://github.com/nodeful/eqMac2/
+and now archived at: 
+https://github.com/bitgapp/eqMac/tree/old-eqMac2
+
+A number of issues with static / distortion, install problems were reported and an issue was opened and development done to solve this as described here:
+Beta eqMac2 v2.3 - possible fix for static/sync loss and Catalina install issue #180
+https://github.com/bitgapp/eqMac/issues/180
+
+Consult this issue for details.
+
+Original README.md from eqMac2 follows. Not all info and urls may still be correct. See issue #180 and new development site (above).
+<h2>
+========================================================
+</h2>
+
 <h1 align="center">
   <a href="https://bitgapp.com/eqmac"><img src="https://github.com/romankisil/eqMac2/blob/master/eqMac2/Assets/Assets/Icons/256x256.png?raw=true?raw=true" alt="eqMac2 - System-Wide Equalizer for the Mac" width="200"></a>
   <br>
